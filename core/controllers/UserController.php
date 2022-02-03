@@ -29,6 +29,7 @@ class UserController {
 
     // ============================================================
     public function newUserAction() {
+        
         // Verificar se houve submissão do formulário
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {
             Store::Redirect("home");

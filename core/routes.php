@@ -10,8 +10,10 @@ $routes = [
     "signupAction" => "userController@newUserAction",
     "confirmEmail" => "userController@confirmEmail",
 
-    // Login
+    // Login and logout
     "signin" => "authController@signIn",
+    "signinAction" => "authController@signinAction",
+    "logout" => "authController@logout",
 
     "cart" => "cartController@index",
 ];

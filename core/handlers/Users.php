@@ -83,4 +83,36 @@ class Users {
 
         return true;
     }
+
+    public static function validateLogin(string $email, string $password) {
+        // Verificar se o login é válido
+        $params = [ ":email" => $email ];
+
+        $db = new Database();
+        $results = $db->select("
+            SELECT * FROM clients WHERE email = :email
+            AND active = 1
+            AND deleted_at IS NULL",
+            $params
+        );
+
+        if(count($results) != 1) {
+            // Não existe usuário com este email
+            return false;
+        } else {
+
+            // Temos o usuário, verificar senha
+            $user = $results[0];
+
+            // Verificar senha
+            if(!password_verify($password, $user->password)) {
+                // Senha inválida
+                return false;
+            } else {
+                // login válido, retornamos o objeto do usuário
+                return $user;
+            }
+
+        }
+    }
 }

@@ -15,7 +15,9 @@
                 <a class="text-light text-decoration-none me-4" href="?a=loja">Loja</a>
 
                 <?php if(Store::LoggedUser()): ?>
-                    <a class="text-light text-decoration-none me-4" href="?a=myaccount">Minha conta</a>
+                    <a class="text-light text-decoration-none me-4" href="?a=myaccount">
+                        <?=$_SESSION["name"]?>
+                    </a>
                     <a class="text-light text-decoration-none me-4" href="?a=logout">Sair</a>
                 <?php else: ?>
                     <a class="text-light text-decoration-none me-4" href="?a=signin">Login</a>
