@@ -1,0 +1,20 @@
+{
+    "name": "dande/store",
+    "description": "This dev store",
+    "type": "project",
+    "authors": [
+        {
+            "name": "This Dev",
+            "email": "thisdev2021@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/"
+        },
+        "files": [
+            "config.php"
+        ]
+    }
+}
