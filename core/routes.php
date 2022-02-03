@@ -8,6 +8,10 @@ $routes = [
     // User rotas
     "signup" => "userController@newUser",
     "signupAction" => "userController@newUserAction",
+    "confirmEmail" => "userController@confirmEmail",
+
+    // Login
+    "signin" => "authController@signIn",
 
     "cart" => "cartController@index",
 ];

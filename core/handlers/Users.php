@@ -57,4 +57,30 @@ class Users {
         // Retorna a hash
         return $hash;
     }
+
+    // ============================================================
+    public static function validateEmail($hash) {
+        // Validar o email do novo usuário
+        $params = [ ":hash" => $hash ];
+        $db = new Database();
+        $results = $db->select("SELECT * FROM clients WHERE hash = :hash", $params);
+
+        if(count($results) !== 1) {
+            return false;
+        }
+
+        // Encontrou um usuário com o hash
+        $idClient = $results[0]->id_client;
+
+        $newParams = [ ":id_client" => $idClient ];
+        $db->update("
+            UPDATE clients SET
+            hash = NULL,
+            active = 1,
+            updated_at = NOW()
+            WHERE id_client = :id_client",
+        $newParams);
+
+        return true;
+    }
 }
