@@ -15,7 +15,10 @@ $routes = [
     "signinAction" => "authController@signinAction",
     "logout" => "authController@logout",
 
+    // Carrinho
     "cart" => "cartController@index",
+    "addToCart" => "cartController@addToCart",
+    "clearCart" => "cartController@clearCart"
 ];
 
 // Action padrão

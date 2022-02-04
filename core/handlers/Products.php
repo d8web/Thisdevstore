@@ -38,4 +38,28 @@ class Products {
         return $categories;
     }
 
+    public static function verifyStockProduct(int $id_product) {
+
+        $db = new Database();
+        $params = [ 'id_product' => $id_product ];
+        $results = $db->select("
+            SELECT * FROM products
+            WHERE id_product = :id_product
+            AND visible = 1
+            AND stock > 0",
+        $params);
+
+        return count($results) != 0 ? true : false;
+    }
+
+    public static function getProductsByIds(string $ids) {
+
+        $db = new Database();
+        return $db->select("
+            SELECT * FROM products
+            WHERE id_product IN ($ids)
+        ");
+        
+    }
+
 }

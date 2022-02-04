@@ -1,4 +1,14 @@
-<?php use core\classes\Store; ?>
+<?php
+    use core\classes\Store;
+    $total = null;
+
+    if(isset($_SESSION["cart"])) {
+        foreach($_SESSION["cart"] as $quantity) {
+            $total += $quantity;
+        }
+    }
+?>
+
 <header class="navigation p-4">
     <div class="container">
         <div class="row">
@@ -27,12 +37,14 @@
                 <a class="text-light text-decoration-none color-light" href="?a=cart">
                     <button type="button" class="border-0 bg-transparent position-relative">
                         <i class="fas fa-shopping-cart text-white"></i>
-                        <!--
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                            <span class="m-0">9</span>
+                        
+                        <span class="position-absolute top-0 start-100 translate-middle <?php echo $total !== null ? "badge" : "" ?> rounded-pill bg-success">
+                            <span class="m-0" id="total">
+                                <?=$total?>
+                            </span>
                             <span class="visually-hidden">unread messages</span>
                         </span>
-                        -->
+                        
                     </button>
                 </a>
                 
