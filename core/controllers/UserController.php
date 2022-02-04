@@ -15,7 +15,6 @@ class UserController {
         }
     }
 
-    // ============================================================
     public function newUser() {
         // Retorna a página com formulário para adicionar/cadastrar um novo usuário.
         Store::Render([
@@ -27,7 +26,6 @@ class UserController {
         ]);
     }
 
-    // ============================================================
     public function newUserAction() {
         
         // Verificar se houve submissão do formulário
@@ -75,7 +73,6 @@ class UserController {
         }
     }
 
-    // ============================================================
     public function confirmEmail() {
         // Verificar se existe uma hash na query string
         if(!isset($_GET["hash"])) {

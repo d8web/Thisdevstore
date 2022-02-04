@@ -9,3 +9,57 @@
     background-color: #5066e0;
     color: #fff;
 }
+
+.space-bottom {
+    margin-bottom: 80px;
+}
+
+/* Box card product */
+.my-product-card {
+    position: relative;
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+.my-product-card span {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 150px;
+    height: 150px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.my-product-card span:before {
+    content: 'Promoção';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150%;
+    height: 40px;
+    background: #5066e0;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #e1e1e1;
+    transform: rotate(-45deg) translateY(-20px);
+    letter-spacing: 0.1em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-product-card span:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: #5066e0;
+    z-index: -1;
+    box-shadow: 140px -140px #5066e0;
+}

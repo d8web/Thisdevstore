@@ -7,7 +7,6 @@ use core\classes\Store;
 
 class Users {
 
-    // ============================================================
     public static function emailExists(string $email) {
         // Verificar se o email existe no banco de dados
         $db = new Database();
@@ -17,7 +16,6 @@ class Users {
         return count($results) != 0 ? true : false;
     }
 
-    // ============================================================
     public static function registerUserDatabase() {
         // Registrar novo cliente no banco de dados
         $db = new Database();
@@ -58,7 +56,6 @@ class Users {
         return $hash;
     }
 
-    // ============================================================
     public static function validateEmail($hash) {
         // Validar o email do novo usuário
         $params = [ ":hash" => $hash ];

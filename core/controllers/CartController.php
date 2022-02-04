@@ -3,10 +3,9 @@
 namespace core\controllers;
 use core\classes\Store;
 
-class CartController
-{
-    public function index()
-    {
+class CartController {
+
+    public function index() {
         Store::Render([
             "partials/header",
             "partials/navbar",
@@ -15,4 +14,5 @@ class CartController
             "partials/footer"
         ]);
     }
+    
 }

@@ -6,7 +6,6 @@ use core\classes\Store;
 
 class MainController {
 
-    // ============================================================
     public function index() {
 
         $data = [
