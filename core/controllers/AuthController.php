@@ -74,9 +74,18 @@ class AuthController {
             $_SESSION["email"] = $result->email;
             $_SESSION["name"] = $result->name;
             
-            // Redirecionar para a página inicial do sistema
-            Store::redirect("home");
+            // Verificar se a variável temporária da sessão está definida [ referer para o carrinho ]
+            if(isset($_SESSION["tmpCart"])) {
 
+                // Remove a variável temporária da sessão [ referer ]
+                unset($_SESSION["tmpCart"]);
+                // Redirecionar usuário para o resumo do checkout
+                Store::redirect("resumeCheckout");
+
+            } else {
+                // Redirecionar para página Home
+                Store::redirect("home");
+            }
         }
 
     }

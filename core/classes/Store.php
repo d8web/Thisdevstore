@@ -40,6 +40,16 @@ class Store {
         return substr(str_shuffle($chars), 0, $numcharacters);
     }
 
+    public static function GenerateHashOrder(): string {
+        // Gerar código da encomenda
+        $code = '';
+        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        $code .= substr(str_shuffle($chars), 0, 2);
+        $code .= rand(100000, 999999);
+        return $code;
+    }
+
     public static function PrintData($data) {
         if (is_array($data) || is_object($data)) {
             echo '<pre>';

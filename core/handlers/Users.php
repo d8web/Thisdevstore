@@ -81,6 +81,11 @@ class Users {
         return true;
     }
 
+    /**
+        * @param string $email
+        * @param string $password
+        * @return bool|object
+    */
     public static function validateLogin(string $email, string $password) {
         // Verificar se o login é válido
         $params = [ ":email" => $email ];
@@ -111,5 +116,24 @@ class Users {
             }
 
         }
+    }
+
+    public static function searchDataClient(int $idClient): object {
+
+        $params = [ ":id_client" => $idClient ];
+
+        $db = new Database();
+        $results = $db->select("
+            SELECT
+                email,
+                name,
+                address,
+                city,
+                phone
+            FROM clients
+            WHERE id_client = :id_client",
+        $params);
+
+        return $results[0];
     }
 }

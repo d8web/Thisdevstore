@@ -20,3 +20,26 @@ const clearCartOff = () => {
     let e = document.getElementById("confirm-clear-cart")
     e.style.display = "none"
 }
+
+const showAddress = () => {
+    let e = document.getElementById("checkAddressAlternative")
+    if(e.checked) {
+        document.getElementById("endereco_alternativo").style.display = 'block'
+    } else {
+        document.getElementById("endereco_alternativo").style.display = 'none'
+    }
+}
+
+const addressAlternative = (e) => {
+    axios({
+        method: 'post',
+        url: '?a=addressAlternative',
+        data: {
+            address: document.getElementById("addressAlternative").value,
+            city: document.getElementById("cityAlternative").value,
+            email: document.getElementById("emailAlternative").value,
+            phone: document.getElementById("phoneAlternative").value,
+        }
+    })
+    .then(() => console.log("Ok"));
+}

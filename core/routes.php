@@ -20,6 +20,12 @@ $routes = [
     "addToCart" => "cartController@addToCart",
     "clearCart" => "cartController@clearCart",
     "removeProductCart" => "cartController@removeProductCart",
+
+    // Orders
+    "checkout" => "orderController@checkout",
+    "resumeCheckout" => "orderController@resumeCheckout",
+    "addressAlternative" => "orderController@addressAlternative",
+    "confirmOrder" => "orderController@confirmOrder"
 ];
 
 // Action padrão
