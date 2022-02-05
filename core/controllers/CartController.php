@@ -10,12 +10,12 @@ class CartController {
     public function index() {
 
         // Verificar se existe uma sessão cart
-        if (!isset($_SESSION["cart"]) || count($_SESSION["cart"]) == 0) {
-            $data = ["cart" => null];
+        if(!isset($_SESSION["cart"]) || count($_SESSION["cart"]) == 0) {
+            $data = [ "cart" => null ];
         } else {
 
             $ids = [];
-            foreach ($_SESSION["cart"] as $idProduct => $quantity) {
+            foreach($_SESSION["cart"] as $idProduct => $quantity) {
                 array_push($ids, $idProduct);
             }
 
@@ -23,11 +23,11 @@ class CartController {
             $results = Products::getProductsByIds($ids);
 
             $dataTmp = [];
-            foreach ($_SESSION["cart"] as $idProduct => $quantityCart) {
+            foreach($_SESSION["cart"] as $idProduct => $quantityCart) {
 
                 // Imagem do produto
-                foreach ($results as $product) {
-                    if ($product->id_product == $idProduct) {
+                foreach($results as $product) {
+                    if($product->id_product == $idProduct) {
                         $idProduct = $product->id_product;
                         $image = $product->image;
                         $title = $product->name;
@@ -50,7 +50,7 @@ class CartController {
 
             // Calcular o total
             $total = 0;
-            foreach ($dataTmp as $item) {
+            foreach($dataTmp as $item) {
                 $total += $item["price"];
             }
 
@@ -59,7 +59,7 @@ class CartController {
             // Inserir o total na sessão
             $_SESSION["total"] = $total;
 
-            $data = ["cart" => $dataTmp];
+            $data = [ "cart" => $dataTmp ];
         }
 
         // Aprensentar a página de carrinho
@@ -75,7 +75,7 @@ class CartController {
     public function addToCart() {
 
         // Verificando se na query string existe o parâmetro idProduct e se o seu valor é diferente de NULL
-        if (!isset($_GET["idProduct"])) {
+        if(!isset($_GET["idProduct"])) {
             echo isset($_SESSION["cart"]) ? count($_SESSION["cart"]) : "";
             return;
         }
@@ -84,19 +84,19 @@ class CartController {
         $idProduct = $_GET["idProduct"];
         $results = Products::verifyStockProduct($idProduct);
 
-        if (!$results) {
+        if(!$results) {
             echo isset($_SESSION["cart"]) ? count($_SESSION["cart"]) : "";
             return;
         }
 
         // Array do carrinho
         $cart = [];
-        if (isset($_SESSION["cart"])) {
+        if(isset($_SESSION["cart"])) {
             $cart = $_SESSION["cart"];
         }
 
         // Adicionar o produto ao carrinho
-        if (key_exists($idProduct, $cart)) {
+        if(key_exists($idProduct, $cart)) {
             // Existe o produto no carrinho, adiciona mais um na quantidade;
             $cart[$idProduct]++;
         } else {
@@ -117,10 +117,35 @@ class CartController {
     }
 
     public function clearcart() {
-
         // Esvaziar o carrinho
-        $_SESSION["cart"] = [];
+        unset($_SESSION['cart']);
 
+        // Redireciona/Refresh para o carrinho
+        $this->index();
+    }
+
+    public function removeProductCart() {
+        
+        // Verificando se na query string tem o idProduct, se seu valor é diferente de null
+        if (!isset($_GET["idProduct"])) {
+            Store::Redirect("cart");
+            exit;
+        }
+
+        // Pegando o id do produto na query string
+        $idProduct = $_GET["idProduct"];
+
+        // Pegando sessão do carrinho
+        $cart = $_SESSION["cart"];
+
+        // Removendo produto do carrinho
+        unset($cart[$idProduct]);
+
+        // Atualizar sessão carrinho com o novo carrinho com o item excluido
+        $_SESSION["cart"] = $cart;
+
+        // Apresentar/atualizar página do carrinho
+        $this->index();
     }
 
 }

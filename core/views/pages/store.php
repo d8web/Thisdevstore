@@ -48,7 +48,7 @@
 
                                         <?php else : ?>
 
-                                            <button class="btn btn-danger btn-sm my-2 disabled">
+                                            <button class="btn btn-danger btn-sm my-2" disabled>
                                                 <i class="fas fa-shopping-cart me-2"></i>
                                                 Em falta!
                                             </button>

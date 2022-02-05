@@ -1,31 +1,22 @@
 const addToCart = (id) => {
-    
     axios.defaults.withCredentials = true
-
     axios.get(`?a=addToCart&idProduct=${id}`)
         .then((response) => {
-
-            let total = response.data
-            let span = document.getElementById("total")
-            span.innerHTML = total
-            span.parentElement.classList.add("badge")
-            
+            if(response.data != "") {
+                let total = response.data
+                let span = document.getElementById("total")
+                span.innerHTML = total
+                span.parentElement.classList.add("badge")
+            }
         })
-
 }
 
 const clearCart = () => {
+    let e = document.getElementById("confirm-clear-cart")
+    e.style.display = "inline"
+}
 
-    axios.defaults.withCredentials = true
-
-    axios.get("?a=clearCart")
-        .then((response) => {
-
-            let total = response.data
-            let span = document.getElementById("total")
-            span.innerHTML = 0
-            span.parentElement.classList.remove("badge")
-            
-        })
-
+const clearCartOff = () => {
+    let e = document.getElementById("confirm-clear-cart")
+    e.style.display = "none"
 }

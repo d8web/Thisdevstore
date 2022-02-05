@@ -38,7 +38,7 @@ class Products {
         return $categories;
     }
 
-    public static function verifyStockProduct(int $id_product) {
+    public static function verifyStockProduct(int $id_product): bool {
 
         $db = new Database();
         $params = [ 'id_product' => $id_product ];
@@ -52,7 +52,7 @@ class Products {
         return count($results) != 0 ? true : false;
     }
 
-    public static function getProductsByIds(string $ids) {
+    public static function getProductsByIds(string $ids): array {
 
         $db = new Database();
         return $db->select("

@@ -18,7 +18,8 @@ $routes = [
     // Carrinho
     "cart" => "cartController@index",
     "addToCart" => "cartController@addToCart",
-    "clearCart" => "cartController@clearCart"
+    "clearCart" => "cartController@clearCart",
+    "removeProductCart" => "cartController@removeProductCart",
 ];
 
 // Action padrão
