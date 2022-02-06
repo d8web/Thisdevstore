@@ -57,7 +57,7 @@ class CartController {
             array_push($dataTmp, $total);
 
             // Inserir o total na sessão
-            // $_SESSION["total"] = $total;
+            $_SESSION["total"] = $total;
 
             $data = [ "cart" => $dataTmp ];
         }

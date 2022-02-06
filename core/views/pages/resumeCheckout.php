@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col mb-4">
-            <h3 class="my-3">Resumo dos pedidos</h3>
+            <h3 class="my-3 fw-bold">Resumo da compra</h3>
         </div>
     </div>
 </div>
@@ -55,9 +55,10 @@
 
                     </tbody>
                 </table>
+                <hr>
 
                 <!-- Dados do cliente -->
-                <h3 class="my-3">Dados do cliente</h3>
+                <h3 class="my-4 fw-bold">Dados do cliente</h3>
                 <div class="row mt-4">
 
                     <div class="col">
@@ -78,7 +79,7 @@
                 <hr>
 
                 <!-- Dados de pagamento -->
-                <h3 class="my-4">Dados do pedido</h3>
+                <h3 class="my-4 fw-bold">Dados da compra</h3>
                 <div class="row mt-4">
                     <div class="col">
                         <p class="fw-bold">
@@ -97,7 +98,7 @@
                 <hr>
 
                 <!-- Input check -->
-                <h3 class="my-4">Endereço Alternativo</h3>
+                <h3 class="my-4 fw-bold">Endereço Alternativo</h3>
                 <div class="form-check form-switch mt-2">
                     <input class="form-check-input" onchange="showAddress()" type="checkbox" value="" id="checkAddressAlternative">
                     <label class="form-check-label" for="checkAddressAlternative">

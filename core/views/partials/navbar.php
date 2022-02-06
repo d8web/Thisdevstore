@@ -38,7 +38,7 @@
                     <button type="button" class="border-0 bg-transparent position-relative">
                         <i class="fas fa-shopping-cart text-white"></i>
                         
-                        <span class="position-absolute top-0 start-100 translate-middle <?php echo $total !== null ? "badge" : "" ?> rounded-pill bg-success">
+                        <span class="position-absolute top-0 start-100 translate-middle <?php echo $total !== null ? "badge" : "" ?> rounded-pill bg-danger">
                             <span class="m-0" id="total">
                                 <?=$total?>
                             </span>
