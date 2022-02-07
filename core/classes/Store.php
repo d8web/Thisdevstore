@@ -5,6 +5,9 @@ use Exception;
 
 class Store {
 
+    /**
+     * @return void 
+    */
     public static function Render(array $structures, $data = null): void {
         // Verificar se a estrutura é um array, neste caso se não for retornamos um erro!
         if(!is_array($structures)) {
@@ -22,11 +25,17 @@ class Store {
         }
     }
 
+    /**
+     * @return bool 
+    */
     public static function LoggedUser(): bool {
         return isset($_SESSION['loggedUser']);
     }
 
-    public static function Redirect(string $route = '', bool $admin = false): void {
+    /**
+     * @return void 
+    */
+    public static function Redirect(string $route = "", bool $admin = false): void {
         // Redirecionar para a rota desejada
         if(!$admin) {
             header("Location: " . BASE_URL . "?a=$route");
@@ -35,31 +44,54 @@ class Store {
         }
     }
 
-    public static function createHash(int $numcharacters = 12) {
+    /**
+     * @return string 
+    */
+    public static function createHash(int $numcharacters = 12): string {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         return substr(str_shuffle($chars), 0, $numcharacters);
     }
 
+    /**
+     * @return string 
+    */
+    public static function aesEncrypt($value) {
+        return bin2hex(openssl_encrypt($value, "aes-256-cbc", AES_KEY, OPENSSL_RAW_DATA, AES_IV));
+    }
+
+    /**
+     * @return string 
+    */
+    public static function aesDescrypt($value) {
+        return openssl_decrypt(hex2bin($value), "aes-256-cbc", AES_KEY, OPENSSL_RAW_DATA, AES_IV);
+    }
+
+    /**
+     * @return string 
+    */
     public static function GenerateHashOrder(): string {
         // Gerar código da encomenda
-        $code = '';
-        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = "";
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         $code .= substr(str_shuffle($chars), 0, 2);
         $code .= rand(100000, 999999);
         return $code;
     }
 
-    public static function PrintData($data) {
+    /**
+     * @return void 
+    */
+    public static function PrintData($data): void {
         if (is_array($data) || is_object($data)) {
-            echo '<pre>';
+            echo "<pre>";
             print_r($data);
         } else {
-            echo '<pre>';
+            echo "<pre>";
             echo $data;
         }
 
-        die('<br> Terminado');
+        die("<br> Terminado");
     }
 
 }

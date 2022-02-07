@@ -5,12 +5,23 @@ $routes = [
     "home" => "mainController@index",
     "loja" => "lojaController@index",
 
-    // User rotas
+    // Cadastro
     "signup" => "userController@newUser",
     "signupAction" => "userController@newUserAction",
     "confirmEmail" => "userController@confirmEmail",
 
-    // Login and logout
+    // Perfil
+    "myaccount" => "userController@myaccount",
+    "alterUserData" => "userController@alterUserData",
+    "alterUserDataSubmit" => "userController@alterUserDataSubmit",
+    "alterUserPassword" => "userController@alterUserPassword",
+    "alterUserPasswordSubmit" => "userController@alterUserPasswordSubmit",
+
+    // Histórico de compras do usuário
+    "historyUserOrders" => "userController@historyUserOrders",
+    "detailsOrder" => "userController@detailsOrder",
+
+    // Altenticação
     "signin" => "authController@signIn",
     "signinAction" => "authController@signinAction",
     "logout" => "authController@logout",
@@ -21,11 +32,14 @@ $routes = [
     "clearCart" => "cartController@clearCart",
     "removeProductCart" => "cartController@removeProductCart",
 
-    // Orders
+    // Compras
     "checkout" => "orderController@checkout",
     "resumeCheckout" => "orderController@resumeCheckout",
     "addressAlternative" => "orderController@addressAlternative",
-    "confirmOrder" => "orderController@confirmOrder"
+    "confirmOrder" => "orderController@confirmOrder",
+
+    // Pagamentos [simulação]
+    "payment" => "paymentController@payment"
 ];
 
 // Action padrão

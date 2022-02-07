@@ -4,12 +4,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.navigation,
-.footer {
-    background-color: #5066e0;
-    color: #fff;
-}
-
 .space-bottom {
     margin-bottom: 80px;
 }
@@ -43,7 +37,7 @@
     align-items: center;
     width: 150%;
     height: 40px;
-    background: #5066e0;
+    background: #0d6efd;
     text-transform: uppercase;
     font-weight: 600;
     color: #e1e1e1;
@@ -59,7 +53,7 @@
     left: 0;
     width: 10px;
     height: 10px;
-    background: #5066e0;
+    background: #0d6efd;
     z-index: -1;
-    box-shadow: 140px -140px #5066e0;
+    box-shadow: 140px -140px #0d6efd;
 }

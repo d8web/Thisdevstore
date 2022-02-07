@@ -26,7 +26,7 @@
                     <?php foreach ($products as $product) : ?>
 
                         <!-- Apresentação do produto -->
-                        <div class="col-lg-4 col-md-6 col-sm-12 p-3 my-cursor">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 p-3 my-cursor">
                             <div class="card border-0 my-product-card">
                                 <?php if ($product->bestseller == 1) : ?>
                                     <span></span>

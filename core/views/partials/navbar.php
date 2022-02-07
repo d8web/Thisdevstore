@@ -9,7 +9,7 @@
     }
 ?>
 
-<header class="navigation p-4">
+<header class="bg-primary p-4">
     <div class="container">
         <div class="row">
             <div class="col-6">
