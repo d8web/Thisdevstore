@@ -51,19 +51,18 @@ class AuthController {
         }
 
         // Preparando os dados para o model
-        $email = trim(strtolower($_POST['email']));
-        $password = trim($_POST['password']);
+        $email = trim(strtolower($_POST["email"]));
+        $password = trim($_POST["password"]);
 
         // Carrega o model e verifica se o login é válido
-        $user = new Users();
-        $result = $user->validateLogin($email, $password);
+        $result = Users::validateLogin($email, $password);
 
         // Analizando se o resultado é um boolean do valor falso.
         if(is_bool($result)) {
 
             // Login inválido
             $_SESSION["error"] = "Login inválido!";
-            Store::redirect("signin");
+            Store::Redirect("signin");
             return;
         
         // Caso não retorne um valor boleano essa função vai retornar um objeto do usuário.
@@ -80,11 +79,11 @@ class AuthController {
                 // Remove a variável temporária da sessão [ referer ]
                 unset($_SESSION["tmpCart"]);
                 // Redirecionar usuário para o resumo do checkout
-                Store::redirect("resumeCheckout");
+                Store::Redirect("resumeCheckout");
 
             } else {
                 // Redirecionar para página Home
-                Store::redirect("home");
+                Store::Redirect("home");
             }
         }
 
@@ -97,7 +96,7 @@ class AuthController {
         unset($_SESSION["name"]);
 
         // Redirecionar para o inicio
-        Store::redirect("home");
+        Store::Redirect("home");
     }
 
 }

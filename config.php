@@ -19,4 +19,4 @@ define("AES_IV",            "NjWA3sg3vyk6yVk2");
 define("EMAIL_HOST",        "");
 define("EMAIL_FROM",        "");
 define("EMAIL_PASS",        "");
-define("EMAIL_PORT",        000);
+define("EMAIL_PORT",        "Port");
