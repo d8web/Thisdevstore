@@ -117,7 +117,7 @@ class Store {
     /**
      * @return void 
     */
-    public static function PrintData($data): void {
+    public static function PrintData($data, $die = true): void {
         if (is_array($data) || is_object($data)) {
             echo "<pre>";
             print_r($data);
@@ -126,7 +126,9 @@ class Store {
             echo $data;
         }
 
-        die("<br> Terminado");
+        if($die) {
+            die("<br> Terminado");
+        }
     }
 
 }

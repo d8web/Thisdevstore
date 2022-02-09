@@ -1,3 +1,4 @@
+<?php use core\classes\Store; ?>
 <div class="container-fluid p-0 m-0"></div>
     <div class="row">
 
@@ -7,9 +8,9 @@
 
         <div class="col-md-10 pe-4">
 
-            <h3 class="mb-4 mt-4">
+            <h4 class="mb-4 mt-4">
                 Lista de Vendas <?= $filter != "" ? $filter : "" ?>
-            </h3>
+            </h4>
 
             <div class="d-flex mb-4 justify-content-between pe-3">
                 <div class="flex-grow-1">
@@ -29,22 +30,22 @@
 
                     <select class="form-select w-25" id="combo-status" onchange="defineFilter()">
                         <option value="" <?= $f == "" ? "selected" : ""; ?>>
-                            Todas as vendas
+                            Todas
                         </option>
                         <option value="pending" <?= $f == "pending" ? "selected" : ""; ?>>
-                            Vendas Pendentes
+                            Pendentes
                         </option>
                         <option value="processing" <?= $f == "processing" ? "selected" : ""; ?>>
-                            Vendas em processamento
+                            Em processamento
                         </option>
                         <option value="send" <?= $f == "send" ? "selected" : ""; ?>>
-                            Vendas enviadas
+                            Enviadas
                         </option>
                         <option value="canceled" <?= $f == "canceled" ? "selected" : ""; ?>>
-                            Vendas canceladas
+                            Canceladas
                         </option>
                         <option value="concluded" <?= $f == "concluded" ? "selected" : ""; ?>>
-                            Vendas concluídas
+                            Concluídas
                         </option>
                     </select>
                 </div>
@@ -76,25 +77,30 @@
                                     <td><?= $sale->name ?></td>
                                     <td><?= $sale->phone != "" ? $sale->phone : "Sem telefone" ?></td>
                                     <td>
-                                        <?php
-                                            switch($sale->status) {
-                                                case "PENDING":
-                                                    echo "Pendente";
-                                                break;
-                                                case "PROCESSING":
-                                                    echo "Processando";
-                                                break;
-                                                case "CANCELED":
-                                                    echo "Cancelada";
-                                                break;
-                                                case "SEND":
-                                                    echo "Enviada";
-                                                break;
-                                                case "CONCLUDED":
-                                                    echo "Concluída";
-                                                break;
-                                            }
-                                        ?>
+                                        <a
+                                            href="?a=detailsOrder&order=<?= Store::aesEncrypt($sale->id_order) ?>"
+                                            class="text-decoration-none"
+                                        >
+                                            <?php
+                                                switch($sale->status) {
+                                                    case "PENDING":
+                                                        echo "Pendente";
+                                                    break;
+                                                    case "PROCESSING":
+                                                        echo "Processando";
+                                                    break;
+                                                    case "CANCELED":
+                                                        echo "Cancelada";
+                                                    break;
+                                                    case "SEND":
+                                                        echo "Enviada";
+                                                    break;
+                                                    case "CONCLUDED":
+                                                        echo "Concluída";
+                                                    break;
+                                                }
+                                            ?>
+                                        </a>
                                     </td>
                                     <td class="text-end">
                                         <?= date("d/m/Y", strtotime($sale->updated_at)) ?>

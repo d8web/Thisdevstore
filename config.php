@@ -15,8 +15,10 @@ define("MYSQL_CHARSET",     "utf8");
 define("AES_KEY",           "muf4YDYMw3KeNv7rFkLFRJhkRwapBDVF");
 define("AES_IV",            "NjWA3sg3vyk6yVk2");
 
+define("STATUS", ["PENDING", "PROCESSING", "SEND", "CANCELED", "CONCLUDED"]);
+
 // EMAIL
 define("EMAIL_HOST",        "");
 define("EMAIL_FROM",        "");
 define("EMAIL_PASS",        "");
-define("EMAIL_PORT",        "Port");
+define("EMAIL_PORT",        7687678);

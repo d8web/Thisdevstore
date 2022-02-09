@@ -75,14 +75,19 @@ class Admin {
 
     /**
      * @param string $filter
+     * @param null|string $userId
      * @return array
     */
-    public static function getListOrders(string $filter): array {
+    public static function getListOrders(string $filter, $userId): array {
         $db = new Database();
 
-        $stringSql = "SELECT o.*, c.name FROM orders o LEFT JOIN clients c ON o.id_client = c.id_client";
-        if($filter != '') {
-            $stringSql .= " WHERE o.status = '$filter'";
+        $stringSql = "SELECT o.*, c.name FROM orders o LEFT JOIN clients c ON o.id_client = c.id_client WHERE 1";
+        if($filter != "") {
+            $stringSql .= " AND o.status = '$filter'";
+        }
+
+        if(!empty($userId)) {
+            $stringSql .= " AND o.id_client = $userId";
         }
 
         $stringSql .= " ORDER BY o.id_order DESC";

@@ -7,6 +7,11 @@ use PHPMailer\PHPMailer\Exception;
 
 class SendEmail {
 
+    /**
+     * @param string $emailClient
+     * @param string $hash
+     * @return bool 
+    */
     public function sendEmailConfirmNewClient(string $emailClient, string $hash): bool {
 
         $link = BASE_URL . '?a=confirmEmail&hash=' . $hash;
@@ -50,6 +55,11 @@ class SendEmail {
         }
     }
 
+    /**
+     * @param string $emailClient
+     * @param array $dataOrder
+     * @return bool 
+    */
     public function sendEmailConfirmOrder(string $emailClient, array $dataOrder): bool {
 
         $mail = new PHPMailer(true);
@@ -98,6 +108,59 @@ class SendEmail {
 
             // Nota importante
             $html .= "<p>NOTA: A sua encomenda só será processada após o pagamento!</p>";
+
+            $mail->Body = $html;
+            $mail->send();
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * @param array $orderData
+     * @return bool 
+    */
+    public static function sendEmailSendProduct(array $orderData): bool {
+
+        $mail = new PHPMailer(true);
+
+        try {
+            // Server config
+            $mail->SMTPDebug = SMTP::DEBUG_OFF;
+            $mail->isSMTP();
+            $mail->Host       = EMAIL_HOST;
+            $mail->SMTPAuth   = true;
+            $mail->Username   = EMAIL_FROM;
+            $mail->Password   = EMAIL_PASS;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = EMAIL_PORT;
+            $mail->CharSet    = "UTF-8";
+
+            // Emissor e recebedor
+            $mail->setFrom(EMAIL_FROM, APP_NAME);
+            $mail->addAddress($orderData["order"]->email);
+
+            // Assunto
+            $mail->isHTML(true);
+            $mail->Subject = APP_NAME . " - Sua compra foi enviada ".$orderData["order"]->code_order;
+
+            // Message
+            $html = "<h1>Olá ".$orderData["order"]->name.", tudo bem?</h1>";
+            $html .= "<p>Estou aqui para informar que a sua compra já foi enviada para os correios.</p>";
+            $html .= "<p>Portanto ela deve chegar nos próximos dias.</p>";
+            $html .= "<p>Pedimos para que fique de olho na sua caixa de correio.</p>";
+
+            $html .= "Código da compra = ".$orderData["order"]->code_order;
+
+            // Montando lista dos produtos que o cliente comprou
+            $html .= "<ul>";
+            foreach ($orderData["orderProducts"] as $product) {
+                $html .= "<li> $product->quantity X - $product->name </li>";
+            }
+            $html .= "</ul>";
+
 
             $mail->Body = $html;
             $mail->send();

@@ -36,16 +36,25 @@
                                 <td><?= date("d/m/Y", strtotime($historyOrder->date)) ?></td>
                                 <td><?=$historyOrder->code_order?></td>
                                 <td>
-                                <?php
-                                    switch($historyOrder->status) {
-                                        case "PENDING":
-                                            echo "Pendente";
-                                        break;
-                                        case "PROCESSING":
-                                            echo "Processando...";
-                                        break;
-                                    }
-                                ?>
+                                    <?php
+                                        switch($historyOrder->status) {
+                                            case "PENDING":
+                                                echo "Pendente";
+                                            break;
+                                            case "PROCESSING":
+                                                echo "Processando";
+                                            break;
+                                            case "CANCELED":
+                                                echo "Cancelada";
+                                            break;
+                                            case "SEND":
+                                                echo "Enviada";
+                                            break;
+                                            case "CONCLUDED":
+                                                echo "Concluída";
+                                            break;
+                                        }
+                                    ?>
                                 </td>
                                 <td class="text-end">
                                     <a

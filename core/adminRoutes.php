@@ -3,9 +3,16 @@
 // Array de rotas
 $routes = [
     "home" => "adminController@index",
-    "ordersList" => "adminController@ordersList",
+
+    // Users
     "users" => "adminController@users",
     "detailsUser" => "adminController@detailsUser",
+    "userHistoryOrder" => "adminController@userHistoryOrder",
+
+    // Orders
+    "ordersList" => "adminController@ordersList",
+    "detailsOrder" => "adminController@detailsOrder",
+    "alterStatusOrder" => "adminController@alterStatusOrder",
 
     // Login admin
     "signInAdmin" => "authController@signIn",

@@ -44,7 +44,16 @@
                                     echo "Pendente";
                                 break;
                                 case "PROCESSING":
-                                    echo "Processando...";
+                                    echo "Processando";
+                                break;
+                                case "CANCELED":
+                                    echo "Cancelada";
+                                break;
+                                case "SEND":
+                                    echo "Enviada";
+                                break;
+                                case "CONCLUDED":
+                                    echo "Concluída";
                                 break;
                             }
                         ?>
@@ -56,7 +65,7 @@
             <div class="row mt-5">
                 <div class="col">
 
-                    <table class="table table-hover shadow-sm">
+                    <table class="table shadow-sm">
                         <thead>
                             <tr>
                                 <th>Nome</th>

@@ -12,7 +12,7 @@ class UserController {
     public function newUser() {
 
         // Verificar se existe um usuário logado, se existir redirecionar para a página home.
-        if(!Store::LoggedUser()) {
+        if(Store::LoggedUser()) {
             Store::Redirect("home");
             exit;
         }
@@ -30,7 +30,7 @@ class UserController {
     public function newUserAction() {
 
         // Verificar se existe um usuário logado, se existir redirecionar para a página home.
-        if(!Store::LoggedUser()) {
+        if(Store::LoggedUser()) {
             Store::Redirect("home");
             exit;
         }
@@ -83,7 +83,7 @@ class UserController {
     public function confirmEmail() {
 
         // Verificar se existe um usuário logado, se existir redirecionar para a página home.
-        if(!Store::LoggedUser()) {
+        if(Store::LoggedUser()) {
             Store::Redirect("home");
             exit;
         }

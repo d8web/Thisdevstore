@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Fev-2022 às 18:45
+-- Tempo de geração: 09-Fev-2022 às 21:13
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.27
 
@@ -69,8 +69,10 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id_client`, `email`, `password`, `name`, `address`, `city`, `phone`, `hash`, `active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'thisdev22@gmail.com', '$2y$10$o/PwCFxavd2p7HtQJpPl/OpzhtB4NAcWa5ng9kynKI0hMk2nuKeEO', 'Daniel', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', '(35) 99821-6583', NULL, 1, '2022-02-03 14:46:19', '2022-02-07 01:18:41', NULL),
-(3, 'contato.daniel.dev@gmail.com', '$2y$10$dqwrKWuqWcHPfc6u.Ji9EO2BQclrysce2ndubwIDwC78MVfbyyy3C', 'Daniel', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', '(35) 99821-6583', NULL, 1, '2022-02-05 23:53:53', '2022-02-07 13:35:14', NULL);
+(2, 'thisdev22@gmail.com', '$2y$10$o/PwCFxavd2p7HtQJpPl/OpzhtB4NAcWa5ng9kynKI0hMk2nuKeEO', 'Amilton', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', '(35) 99821-6583', NULL, 1, '2022-02-03 14:46:19', '2022-02-09 15:09:39', NULL),
+(3, 'contato.daniel.dev@gmail.com', '$2y$10$dqwrKWuqWcHPfc6u.Ji9EO2BQclrysce2ndubwIDwC78MVfbyyy3C', 'Clóvis', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', '(35) 99821-6583', NULL, 1, '2022-02-05 23:53:53', '2022-02-09 15:08:55', NULL),
+(4, 'df46636@gmail.com', '$2y$10$aTa3V0pM.ZuYsPgrDhDBheMvCt92QWDx.GuNlIlCNN/mSWMB1oqOK', 'Vanderson', '123456', 'Minduri', '(35) 99821-6583', NULL, 1, '2022-02-09 14:54:07', '2022-02-09 15:09:23', NULL),
+(5, 'dfdev2022@gmail.com', '$2y$10$O5lcomC2RJF35peC2TOLaOKZEEmwUN0uyn4pfC8wTjOwRxShEZZuO', 'Jobson', 'Rua Tapecaria machado', 'Londrina', '(35) 99821-6583', NULL, 1, '2022-02-09 15:00:36', '2022-02-09 15:09:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -98,10 +100,12 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id_order`, `id_client`, `date`, `address`, `city`, `email`, `phone`, `code_order`, `status`, `message`, `created_at`, `updated_at`) VALUES
-(1, 2, '2022-02-05 23:40:19', 'Rua americo brasileiro N 200', 'Carrancas', 'thisdev22@gmail.com', '', 'YP625670', 'PENDING', '', '2022-02-05 23:40:19', '2022-02-05 23:40:19'),
-(2, 3, '2022-02-05 23:56:52', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', 'contato.daniel.dev@gmail.com', '', 'RD256847', 'PENDING', '', '2022-02-05 23:56:52', '2022-02-05 23:56:52'),
-(3, 3, '2022-02-06 00:09:15', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', 'contato.daniel.dev@gmail.com', '', 'YK977609', 'PENDING', '', '2022-02-06 00:09:15', '2022-02-06 00:09:15'),
-(4, 3, '2022-02-06 00:24:53', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', 'contato.daniel.dev@gmail.com', '', 'GG955545', 'PROCESSING', '', '2022-02-06 00:24:53', '2022-02-07 14:39:46');
+(1, 2, '2022-02-05 23:40:19', 'Rua americo brasileiro N 200', 'Carrancas', 'thisdev22@gmail.com', '', 'YP625670', 'SEND', '', '2022-02-05 23:40:19', '2022-02-09 14:45:15'),
+(2, 3, '2022-02-05 23:56:52', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', 'contato.daniel.dev@gmail.com', '', 'RD256847', 'PENDING', '', '2022-02-05 23:56:52', '2022-02-09 13:16:57'),
+(3, 3, '2022-02-06 00:09:15', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', 'contato.daniel.dev@gmail.com', '', 'YK977609', 'SEND', '', '2022-02-06 00:09:15', '2022-02-09 14:43:40'),
+(4, 3, '2022-02-06 00:24:53', 'Rua Ana Araújo Siqueira', 'Itapeva-MG', 'contato.daniel.dev@gmail.com', '', 'GG955545', 'PROCESSING', '', '2022-02-06 00:24:53', '2022-02-07 14:39:46'),
+(5, 4, '2022-02-09 14:55:44', '123456', 'Minduri', 'df46636@gmail.com', '(35) 99821-6583', 'CM981659', 'PENDING', '', '2022-02-09 14:55:44', '2022-02-09 14:55:44'),
+(6, 5, '2022-02-09 15:01:32', 'Rua Tapecaria machado', 'Londrina', 'dfdev2022@gmail.com', '(35) 99821-6583', 'BQ678797', 'PENDING', '', '2022-02-09 15:01:32', '2022-02-09 15:01:32');
 
 -- --------------------------------------------------------
 
@@ -136,11 +140,11 @@ INSERT INTO `products` (`id_product`, `category`, `name`, `description`, `image`
 (5, 'celulares', 'Smartphone Samsung', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'digital_01.jpg', '999.00', 100, 1, 1, '2021-11-29 13:03:31', '2021-11-29 13:03:31', NULL),
 (6, 'cameras', 'Câmera Samsung', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'digital_07.jpg', '789.00', 50, 1, 0, '2021-11-29 13:03:31', '2021-11-29 13:03:31', NULL),
 (7, 'controles', 'Controle Xbox One', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'digital_18.jpg', '299.00', 20, 1, 1, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
-(8, 'fones', 'Fone JBL Bluetooth', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'el_hover_img1.jpg', '229.00', 20, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
-(9, 'fones', 'Fone Zebronics Bluetooth', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'phone.png', '159.00', 20, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
-(10, 'notebooks', 'Notebook Aspire', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'digital_14.jpg', '1979.00', 20, 1, 1, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
-(11, 'som', 'Caixa de som JBL', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'jbl.png', '799.00', 20, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
-(12, 'computadores', 'Computador Lenovo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'pc.png', '2799.00', 0, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL);
+(9, 'fones', 'Fone JBL Bluetooth', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'el_hover_img1.jpg', '229.00', 20, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
+(10, 'fones', 'Fone Zebronics Bluetooth', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'phone.png', '159.00', 20, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
+(11, 'notebooks', 'Notebook Aspire', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'digital_14.jpg', '1979.00', 20, 1, 1, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
+(12, 'som', 'Caixa de som JBL', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'jbl.png', '799.00', 20, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL),
+(13, 'computadores', 'Computador Lenovo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis efficitur pharetra. Aenean ut orci mi. Mauris sit amet rhoncus odio. Vestibulum eget ante vestibulum justo aliquet sodales. Nulla semper diam id egestas tristique. Phasellus suscipit lectus libero, sit amet venenatis dolor venenatis auctor.', 'pc.png', '2799.00', 0, 1, 0, '2021-11-29 13:19:07', '2021-11-29 13:19:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -168,7 +172,13 @@ INSERT INTO `sale_products` (`id_sale`, `id_order`, `name`, `price_unit`, `quant
 (4, 2, 'Tv 43 Polegadas', '2499.00', 1, '2022-02-05 23:56:52'),
 (5, 2, 'Câmera Samsung', '789.00', 1, '2022-02-05 23:56:52'),
 (6, 3, 'Controle Xbox One', '299.00', 2, '2022-02-06 00:09:15'),
-(7, 4, 'Câmera Samsung', '789.00', 1, '2022-02-06 00:24:53');
+(7, 4, 'Câmera Samsung', '789.00', 1, '2022-02-06 00:24:53'),
+(8, 5, 'Fone Zebronics Bluetooth', '159.00', 2, '2022-02-09 14:55:44'),
+(9, 5, 'Caixa de som JBL', '799.00', 1, '2022-02-09 14:55:44'),
+(10, 6, 'Tv 43 Polegadas', '2499.00', 2, '2022-02-09 15:01:32'),
+(11, 6, 'Fone JBL Bluetooth', '229.00', 3, '2022-02-09 15:01:32'),
+(12, 6, 'Fone Zebronics Bluetooth', '159.00', 3, '2022-02-09 15:01:32'),
+(13, 6, 'Notebook Aspire', '1979.00', 4, '2022-02-09 15:01:32');
 
 --
 -- Índices para tabelas despejadas
@@ -218,13 +228,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT de tabela `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id_client` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_client` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `products`
@@ -236,7 +246,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de tabela `sale_products`
 --
 ALTER TABLE `sale_products`
-  MODIFY `id_sale` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_sale` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
