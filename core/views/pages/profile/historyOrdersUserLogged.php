@@ -71,7 +71,7 @@
                 </table>
 
                 <div class="text-end fs-6 mt-4">
-                    Total de produtos: <strong><?=count($historyOrders)?></strong>
+                    Total de compras: <strong><?=count($historyOrders)?></strong>
                 </div>
 
             <?php endif ?>

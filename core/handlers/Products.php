@@ -11,11 +11,12 @@ class Products {
         // Lista de categorias da loja
         $categories = self::listCategories();
 
-        $sql = "SELECT * FROM products ";
-        $sql .= "WHERE visible = 1 ";
+        $sql = "SELECT * FROM products WHERE 1";
+        $sql .= " AND visible = 1";
+        $sql .= " AND deleted_at IS NULL";
 
         if(in_array($category, $categories)) {
-            $sql .= "AND category = '$category'";
+            $sql .= " AND category = '$category'";
         }
 
         $products = $db->select($sql);

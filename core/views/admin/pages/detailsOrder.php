@@ -38,6 +38,16 @@
                             }
                         ?>
                     </button>
+                    <?php if($order->status == "PROCESSING"): ?>
+                        <a
+                            href="?a=createOrderPDF&order=<?= Store::aesEncrypt($order->id_order) ?>"
+                            class="btn btn-warning"
+                        >Ver PDF</a>
+                        <a
+                            href="?a=sendOrderPDF&order=<?= Store::aesEncrypt($order->id_order) ?>"
+                            class="btn btn-warning"
+                        >Enviar PDF</a>
+                    <?php endif ?>
                 </div>
             </div>
 

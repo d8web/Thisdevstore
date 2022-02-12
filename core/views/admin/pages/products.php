@@ -1,5 +1,5 @@
 <?php use core\classes\Store;  ?>
-<div class="container-fluid p-0 m-0">
+<div class="container-fluid p-0 m-0 pb-5">
     <div class="row">
 
         <div class="col-md-2">
@@ -7,9 +7,24 @@
         </div>
 
         <div class="col-md-10 pe-4">
-            <h4 class="mb-4 mt-4">Lista de usuários</h4>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h4 class="mb-4 mt-4">Lista de Produtos</h4>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-end">
+                    <a href="?a=newProduct" class="btn btn-primary">Adicionar Produto</a>
+                </div>
+            </div>
 
-            <?php if(count($clients) ==0): ?>
+            <?php if(isset($_SESSION["success"]) && !empty($_SESSION["success"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["success"] ?>
+                    <?php unset($_SESSION["success"]) ?>
+                </div>
+            <?php endif ?>
+
+            <?php if(count($productsList) ==0): ?>
                 <p>Não existem usuários cadastrados!</p>
             <?php else: ?>
 
@@ -20,62 +35,61 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
-                                <th class="text-center">Compras</th>
-                                <th class="text-center">Ativo</th>
-                                <th class="text-center">Excluido</th>
+                                <th>Categoria</th>
+                                <th class="text-center">Preço</th>
+                                <th class="text-center">Visivel</th>
+                                <th class="text-center">Estoque</th>
+                                <th class="text-center">Mais vendido</th>
+                                <th class="text-end">Criado</th>
+                                <th class="text-end">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
     
-                            <?php foreach($clients as $client): ?>
+                            <?php foreach($productsList as $item): ?>
                                 <tr>
                                     <td>
                                         <a
-                                            href="?a=detailsUser&user=<?=Store::aesEncrypt($client->id_client)?>"
+                                            href="?a=editProduct&product=<?=Store::aesEncrypt($item->id_product)?>"
                                             class="text-decoration-none"
                                         >
-                                            <?=$client->name?>
+                                            <?=$item->name?>
                                         </a>
                                     </td>
-                                    <td><?=$client->email?></td>
-                                    <td><?=$client->phone?></td>
+                                    <td><?=$item->category?></td>
+                                    <td class="text-center">R$ <?= number_format($item->price, 2, ',', '.') ?></td>
                                     <td class="text-center">
-                                        <?php if($client->totalUserOrders == 0): ?>
-                                            -
-                                        <?php else : ?>
-                                            <a
-                                                href="?a=ordersList&user=<?= Store::aesEncrypt($client->id_client) ?>"
-                                                class="text-decoration-none"
-                                            >
-                                                <?=$client->totalUserOrders?>
-                                            </a>
-                                        <?php endif ?>
-                                    </td>
-    
-                                    <td class="text-center">
-                                        <?php if($client->active == 1): ?>
+                                        <?php if($item->visible == 1): ?>
                                             <span class="text-success">
-                                                <i class="far fa-check-square"></i>
+                                                <i class="fas fa-check"></i>
                                             </span>
                                         <?php else: ?>
                                             <span class="text-danger">
-                                                <i class="fas fa-exclamation"></i>
+                                                <i class="fas fa-ban"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="text-center"><?=$item->stock?></td>
+                                    <td class="text-center">
+                                        <?php if($item->bestseller == 1): ?>
+                                            <span class="text-success">
+                                                <i class="fas fa-check"></i>
+                                            </span>
+                                        <?php else: ?>
+                                            <span class="text-danger">
+                                                <i class="fas fa-ban"></i>
                                             </span>
                                         <?php endif; ?>
                                     </td>
     
-                                    <td class="text-center">
-                                        <?php if($client->deleted_at == NULL): ?>
-                                            <span class="text-danger">
-                                                <i class="fas fa-exclamation"></i>
-                                            </span>
-                                        <?php else: ?>
-                                            <span class="text-success">
-                                                <i class="fas fa-exclamation"></i>
-                                            </span>
-                                        <?php endif; ?>
+                                    <td class="text-end">
+                                        <?= date("d/m/Y", strtotime($item->created_at))?>
+                                    </td>
+
+                                    <td class="text-end">
+                                        <a href="?a=deleteProduct&product=<?=Store::aesEncrypt($item->id_product)?>">
+                                            <i class="fas fa-trash text-danger"></i>
+                                        </a>
                                     </td>
     
                                 </tr>

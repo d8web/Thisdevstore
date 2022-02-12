@@ -171,4 +171,52 @@ class SendEmail {
         }
     }
 
+    /**
+     * @param string $emailClient
+     * @param string $fileName
+     * @return bool
+    */
+    public static function sendPDFOrderFromClient(string $emailClient, string $name) {
+
+        $mail = new PHPMailer(true);
+
+        try {
+            
+            // Server config
+            $mail->SMTPDebug  = SMTP::DEBUG_OFF;
+            $mail->isSMTP();
+            $mail->Host       = EMAIL_HOST;
+            $mail->SMTPAuth   = true;
+            $mail->Username   = EMAIL_FROM;
+            $mail->Password   = EMAIL_PASS;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = EMAIL_PORT;
+            $mail->CharSet    = "UTF-8";
+
+            // Emissor e recebedor
+            $mail->setFrom(EMAIL_FROM, APP_NAME);
+            $mail->addAddress($emailClient);
+
+            // Assunto
+            $mail->isHTML(true);
+            $mail->Subject = APP_NAME . ' - PDF com detalhes da sua compra';
+
+            // Messagem
+            $html = '<p>Veja no anexo um pdf com os detalhes da sua compra.</p>';
+            $html .= '<p><i><small>' . APP_NAME . '</small></i></p>';
+
+            // Anexo
+            $mail->addAttachment( PDF_PATH . $name);
+
+            $mail->Body = $html;
+
+            $mail->send();
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+
+    }
+
 }

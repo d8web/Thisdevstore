@@ -4,15 +4,28 @@
 $routes = [
     "home" => "adminController@index",
 
+    // Gerar PDFS example
+    "pdf" => "adminController@pdf",
+
     // Users
-    "users" => "adminController@users",
-    "detailsUser" => "adminController@detailsUser",
-    "userHistoryOrder" => "adminController@userHistoryOrder",
+    "users" => "userController@users",
+    "detailsUser" => "userController@detailsUser",
+    "userHistoryOrder" => "userController@userHistoryOrder",
 
     // Orders
-    "ordersList" => "adminController@ordersList",
-    "detailsOrder" => "adminController@detailsOrder",
-    "alterStatusOrder" => "adminController@alterStatusOrder",
+    "ordersList" => "orderController@ordersList",
+    "detailsOrder" => "orderController@detailsOrder",
+    "alterStatusOrder" => "orderController@alterStatusOrder",
+    "createOrderPDF" => "orderController@createOrderPDF",
+    "sendOrderPDF" => "orderController@sendOrderPDF",
+
+    // Products
+    "productsList" => "productsController@productsList",
+    "newProduct" => "productsController@newProduct",
+    "newProductSubmit" => "productsController@newProductSubmit",
+    "editProduct" => "productsController@editProduct",
+    "editProductSubmit" => "productsController@editProductSubmit",
+    "deleteProduct" => "productsController@deleteProduct",
 
     // Login admin
     "signInAdmin" => "authController@signIn",
