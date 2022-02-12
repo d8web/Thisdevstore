@@ -15,7 +15,7 @@
 
                 <p>Não existem produtos no carrinho.</p>
 
-                <a href="?a=loja" class="btn btn-primary">Ir para a loja</a>
+                <a href="?a=loja" class="btn bg-button">Ir para a loja</a>
 
 
             <?php else : ?>
@@ -94,15 +94,15 @@
                     <div class="row">
                         <div class="col">
                             <!-- <a href="?a=clearCart" class="btn btn-sm btn-primary">Limpar Carrinho</a> -->
-                            <button class="btn btn-sm btn-primary me-2" onclick="clearCart()">Limpar Carrinho</button>
+                            <button class="btn btn-sm bg-button me-2" onclick="clearCart()">Limpar Carrinho</button>
                             <span id="confirm-clear-cart" style="display: none;">
                                 Tem certeza?
                                 <button class="btn btn-sm btn-primary" onclick="clearCartOff()">NÃO</button>
-                                <a href="?a=clearCart" class="btn btn-sm btn-warning">SIM</a>
+                                <a href="?a=clearCart" class="btn btn-sm btn-danger">SIM</a>
                             </span>
                         </div>
                         <div class="col text-end">
-                            <a href="?a=loja" class="btn btn-sm btn-primary">Continuar comprando</a>
+                            <a href="?a=loja" class="btn btn-sm bg-button">Continuar comprando</a>
                             <a href="?a=checkout" class="btn btn-sm btn-success">Finalizar compra</a>
                         </div>
                     </div>

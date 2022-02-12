@@ -5,9 +5,9 @@
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 pe-4">
+        <div class="col-md-10 bg-dark p-4 pe-5">
 
-            <h4 class="mb-4 mt-4">
+            <h4 class="mb-4 mt-2">
                 Lista de compras do usuário
             </h4>
 
@@ -32,7 +32,7 @@
             <?php else : ?>
 
                 <div class="table-responsive pe-3 mt-4">
-                    <table class="table table-sm table-bordered pt-3" id="list-sales">
+                    <table class="table table-sm table-bordered pt-3 text-white" id="list-sales">
                         <thead class="border-bottom">
                             <tr>
                                 <th>Data</th>

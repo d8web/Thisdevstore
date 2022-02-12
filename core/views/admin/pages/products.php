@@ -1,19 +1,19 @@
 <?php use core\classes\Store;  ?>
 <div class="container-fluid p-0 m-0 pb-5">
-    <div class="row">
+    <div class="row pe-2">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 pe-4">
+        <div class="col-md-10 bg-dark p-4">
             
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <h4 class="mb-4 mt-4">Lista de Produtos</h4>
+                    <h4 class="mb-4 mt-2">Lista de Produtos</h4>
                 </div>
-                <div class="col-md-6 d-flex align-items-center justify-content-end">
-                    <a href="?a=newProduct" class="btn btn-primary">Adicionar Produto</a>
+                <div class="col-md-6 text-end">
+                    <a href="?a=newProduct" class="btn btn-primary mt-1">Adicionar Produto</a>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                 <!-- Tabela de clientes -->
                 <div class="table-responsive">
 
-                    <table class="table table-bordered pt-4" id="table-clients">
+                    <table class="table table-bordered pt-4 text-white" id="table-clients">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -87,7 +87,10 @@
                                     </td>
 
                                     <td class="text-end">
-                                        <a href="?a=deleteProduct&product=<?=Store::aesEncrypt($item->id_product)?>">
+                                        <a
+                                            href="?a=deleteProduct&product=<?=Store::aesEncrypt($item->id_product)?>"
+                                            onclick="return confirm('Você tem certeza?');"
+                                        >
                                             <i class="fas fa-trash text-danger"></i>
                                         </a>
                                     </td>

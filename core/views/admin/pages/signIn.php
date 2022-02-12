@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="row my-5">
 
-        <div class="col-sm-4 offset-sm-4">
+        <div class="col-sm-4 offset-sm-4 bg-dark p-4 pe-5">
             <h3>Login Admin</h3>
 
             <form action="?a=signInAdminAction" method="post" class="mt-4">

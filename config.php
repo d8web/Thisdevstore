@@ -16,7 +16,13 @@ define("AES_KEY",           "muf4YDYMw3KeNv7rFkLFRJhkRwapBDVF");
 define("AES_IV",            "NjWA3sg3vyk6yVk2");
 
 // Status order
-define("STATUS", ["PENDING", "PROCESSING", "SEND", "CANCELED", "CONCLUDED"]);
+define("STATUS",            ["PENDING", "PROCESSING", "SEND", "CANCELED", "CONCLUDED"]);
 
 // PDF
 define("PDF_PATH",          "C:/xampp/htdocs/store/pdfs/");
+
+// EMAIL
+define("EMAIL_HOST",        "smtp");
+define("EMAIL_FROM",        "selemail.com");
+define("EMAIL_PASS",        "senhaemail");
+define("EMAIL_PORT",        000);

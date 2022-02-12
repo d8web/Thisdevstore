@@ -1,4 +1,4 @@
-<footer class="fixed-bottom bg-primary text-white">
+<footer class="fixed-bottom my-bg text-white">
     <div class="container">
         <div class="row">
             <div class="col-12 p-3 text-center">

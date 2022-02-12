@@ -1,15 +1,15 @@
 <?php use core\classes\Store; ?>
 
 <div class="container-fluid">
-    <div class="row mt-3">
+    <div class="row">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 mt-4">
+        <div class="col-md-10 bg-dark p-4 pe-5">
 
-            <div class="row pe-3 mb-2">
+            <div class="row mb-2">
                 <div class="col">
                     <div class="mb-4">
                         <h3 class="fw-bold m-0">Detalhes da venda</h3>
@@ -107,7 +107,7 @@
 
             <hr>
 
-            <table class="table table-borderless table-light mt-5">
+            <table class="table table-borderless mt-5 mb-4 bg-transparent text-white">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -130,6 +130,13 @@
                 </tbody>
             </table>
 
+            <?php if (isset($_SESSION["success"])) : ?>
+                <div class="alert alert-success text-center p-2 my-4" role="alert">
+                    <?= $_SESSION["success"] ?>
+                    <?php unset($_SESSION["success"]) ?>
+                </div>
+            <?php endif ?>
+
         </div>
 
     </div>
@@ -137,18 +144,18 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalStatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bg-transparent" id="modalStatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Alterar status da compra</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content bg-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fs-4" id="exampleModalLabel">Alterar status da compra</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 
                 <ul class="list-unstyled">
                     <?php foreach (STATUS as $item): ?>
-                        <li class="fs-6 mb-2">
+                        <li class="fs-5 mb-2">
                             <?php if($order->status == $item): ?>
                                 <?php
                                     switch($item) {
@@ -172,7 +179,7 @@
                             <?php else: ?>
                                 <a
                                     href="?a=alterStatusOrder&idOrder=<?= core\classes\Store::aesEncrypt($order->id_order) ?>&status=<?=$item?>"
-                                    class="text-decoration-none"
+                                    class="text-decoration-none fs-5"
                                 >
                                     <?php
                                         switch($item) {
@@ -200,7 +207,7 @@
                 </ul>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer border-0">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             </div>
         </div>

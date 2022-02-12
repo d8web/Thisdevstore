@@ -45,7 +45,7 @@
                 <a href="?a=myaccount" class="btn btn-danger btn-block my-3">Cancelar</a>
     
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block my-3">Salvar</button>
+                <button type="submit" class="btn bg-button btn-block my-3">Salvar</button>
     
                 <?php if (isset($_SESSION["error"])) : ?>
                     <div class="alert alert-danger text-center p-2 mt-4" role="alert">

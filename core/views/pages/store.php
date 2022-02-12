@@ -41,14 +41,14 @@
 
                                         <?php if ($product->stock > 0) : ?>
 
-                                            <button class="btn btn-primary btn-sm my-2" onclick="addToCart(<?= $product->id_product ?>)">
+                                            <button class="btn bg-button btn-sm my-2" onclick="addToCart(<?= $product->id_product ?>)">
                                                 <i class="fas fa-shopping-cart me-2"></i>
                                                 Adicionar ao carrinho
                                             </button>
 
                                         <?php else : ?>
 
-                                            <button class="btn btn-danger btn-sm my-2" disabled>
+                                            <button class="btn btn-sm my-2" disabled>
                                                 <i class="fas fa-shopping-cart me-2"></i>
                                                 Em falta!
                                             </button>

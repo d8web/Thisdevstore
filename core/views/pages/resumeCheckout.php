@@ -150,7 +150,7 @@
                         <a href="?a=cart" class="btn btn-sm btn-danger">Cancelar</a>
                     </div>
                     <div class="col text-end">
-                        <a href="?a=confirmOrder" class="btn btn-sm btn-success" onclick="addressAlternative()">
+                        <a href="?a=confirmOrder" class="btn btn-sm bg-button" onclick="addressAlternative()">
                             Confirmar Pedido
                         </a>
                     </div>

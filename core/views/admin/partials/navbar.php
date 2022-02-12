@@ -1,8 +1,8 @@
 <?php use core\classes\Store; ?>
 
-<header class="container-fluid bg-light ps-4 pe-4">
+<header class="my-bg container-fluid ps-4 pe-4">
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand text-dark" href="?a=home">
+        <a class="navbar-brand text-light" href="?a=home">
             <?= "ADMIN | " . APP_NAME ?>
         </a>
 
@@ -16,13 +16,13 @@
             <ul class="navbar-nav ms-auto">
                 <?php if (Store::LoggedAdmin()) : ?>
                     <li class="me-4">
-                        <span href="" class="text-decoration-none text-dark">
+                        <span href="" class="text-decoration-none">
                             <span><?= $_SESSION["userAdmin"]; ?></span>
                         </span>
                     </li>
                     <li>
-                        <a href="?a=logoutAdmin" class="text-decoration-none text-dark">
-                            <i class="fas fa-sign-out-alt"></i>
+                        <a href="?a=logoutAdmin" class="text-decoration-none">
+                            <i class="fas fa-sign-out-alt text-light"></i>
                         </a>
                     </li>
                 <?php endif ?>

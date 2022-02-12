@@ -179,9 +179,7 @@ class OrderController {
         return SendEmail::sendEmailSendProduct($orderData);
     }
 
-    /**
-     * Criar o pdf da compra 
-    */
+    // Criar o pdf da compra 
     public function createOrderPDF() {
 
         // Verificar se veio o parâmetro order na query string
@@ -374,8 +372,24 @@ class OrderController {
         $pdf->positionAndDimension(455, 850, 260, 28);
         $pdf->writePDF("Total = R$ ".number_format($totalOrder, 2, ',', '.'));
 
-        // Aprensentar o PDF criado
-        // $pdf->presentPDF();
+        // Definir permissões, caso queira colocar uma senha no pdf para enviar para o cliente
+        // Example: $pdf->setPermissions([], password)
+        $permissions = [
+            // "copy",
+            "print",
+            // "modify",
+            // "annot-forms",
+            // "fill-forms",
+            // "extract",
+            // "assemble",
+            // "print-highres",
+        ];
+
+        // Setando as permissões do pdf
+        $pdf->setPermissions($permissions);
+
+        // Exemplo de envio de pdf com senha, recebido no segundo parâmetro do método setPermissions(permissions[], password)
+        // $pdf->setPermissions($permissions, "123456");
 
         // Guardar o arquivo PDF
         $name = $orderData["order"]->code_order . "_" . date("YmdHis").".pdf";
@@ -385,7 +399,13 @@ class OrderController {
         $resultEmail = SendEmail::sendPDFOrderFromClient($orderData["order"]->email, $name);
 
         if($resultEmail) {
-            echo "Email enviado com sucesso!";
+            // Eliminar o arquivo pdf enviado por email
+            unlink( PDF_PATH. $name );
+            
+            // Redirecionar para a página de vendas
+            $_SESSION["success"] = "PDF enviado com sucesso!";
+            Store::Redirect("detailsOrder&order=".$_GET["order"], true);
+            exit;
         }
 
     }

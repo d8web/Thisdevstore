@@ -53,7 +53,7 @@
                 </div>
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block my-4">Cadastrar</button>
+                <button type="submit" class="btn bg-button btn-block my-4">Cadastrar</button>
 
                 <?php if (isset($_SESSION["error"])) : ?>
                     <div class="alert alert-danger text-center p-2" role="alert">

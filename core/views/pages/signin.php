@@ -33,7 +33,7 @@
                 <!-- Submit button -->
                 <button
                     type="submit"
-                    class="btn btn-primary mt-4"
+                    class="btn bg-button mt-4"
                 >Login</button>
 
                 <?php if(isset($_SESSION["error"])): ?>

@@ -1,12 +1,12 @@
 <?php use core\classes\Store; ?>
 <div class="container-fluid">
-    <div class="row mt-3">
+    <div class="row">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 mt-4">
+        <div class="col-md-10 bg-dark p-4 pe-5">
             <div class="row">
                 <div class="col">
                     <h3 class="mb-4 fw-bold">Detalhes do usuário <?=$detailsClient->name?></h3>

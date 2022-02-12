@@ -9,7 +9,7 @@
     }
 ?>
 
-<header class="bg-primary p-4">
+<header class="p-4 my-bg">
     <div class="container">
         <div class="row">
             <div class="col-6">

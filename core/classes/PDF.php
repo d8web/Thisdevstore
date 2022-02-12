@@ -88,7 +88,7 @@ class PDF {
     */
     public function setFontFamily(string $fontFamily) {
 
-        $familyPossible = [ "Arial", "Lucida Sans", "Times New Roman", "Courier New", "Franklin Gothic Medium" ];
+        $familyPossible = [ "Arial", "Lucida Sans", "Times New Roman", "Courier New", "Franklin Gothic Medium", "Ping Pong" ];
 
         // Verificar se a família permite as fontes permitidas
         if(in_array($fontFamily, $familyPossible)) {
@@ -214,6 +214,15 @@ class PDF {
     public function presentPDF() {
         $this->pdf->writeHtml($this->html);
         $this->pdf->Output();
+    }
+
+    /**
+     * @param array $permissions
+     * @param string @password 
+    */
+    public function setPermissions(array $permissions = [], string $password = "") {
+        // Definir permississões para o pdf
+        $this->pdf->SetProtection($permissions, $password);
     }
 
     /**

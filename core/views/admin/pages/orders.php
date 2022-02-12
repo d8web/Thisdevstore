@@ -1,18 +1,18 @@
 <?php use core\classes\Store; ?>
 <div class="container-fluid p-0 m-0"></div>
-    <div class="row">
+    <div class="row pe-1">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 pe-4">
+        <div class="col-md-10 bg-dark p-4">
 
-            <h4 class="mb-4 mt-4">
+            <h4 class="mb-4 mt-2">
                 Lista de Vendas <?= $filter != "" ? $filter : "" ?>
             </h4>
 
-            <div class="d-flex mb-4 justify-content-between pe-3">
+            <div class="d-flex mb-4 justify-content-between pe-2">
                 <div class="flex-grow-1">
                     <a href="?a=ordersList" class="btn btn-primary">Todas as vendas</a>
                 </div>
@@ -28,23 +28,23 @@
                         }
                     ?>
 
-                    <select class="form-select w-25" id="combo-status" onchange="defineFilter()">
-                        <option value="" <?= $f == "" ? "selected" : ""; ?>>
+                    <select class="form-select w-25 bg-transparent text-white" id="combo-status" onchange="defineFilter()">
+                        <option class="text-dark" value="" <?= $f == "" ? "selected" : ""; ?>>
                             Todas
                         </option>
-                        <option value="pending" <?= $f == "pending" ? "selected" : ""; ?>>
+                        <option class="text-dark" value="pending" <?= $f == "pending" ? "selected" : ""; ?>>
                             Pendentes
                         </option>
-                        <option value="processing" <?= $f == "processing" ? "selected" : ""; ?>>
+                        <option class="text-dark" value="processing" <?= $f == "processing" ? "selected" : ""; ?>>
                             Em processamento
                         </option>
-                        <option value="send" <?= $f == "send" ? "selected" : ""; ?>>
+                        <option class="text-dark" value="send" <?= $f == "send" ? "selected" : ""; ?>>
                             Enviadas
                         </option>
-                        <option value="canceled" <?= $f == "canceled" ? "selected" : ""; ?>>
+                        <option class="text-dark" value="canceled" <?= $f == "canceled" ? "selected" : ""; ?>>
                             Canceladas
                         </option>
-                        <option value="concluded" <?= $f == "concluded" ? "selected" : ""; ?>>
+                        <option class="text-dark" value="concluded" <?= $f == "concluded" ? "selected" : ""; ?>>
                             Concluídas
                         </option>
                     </select>
@@ -57,8 +57,8 @@
 
             <?php else : ?>
 
-                <div class="table-responsive pe-3 mt-4">
-                    <table class="table table-sm table-bordered pt-3" id="list-sales">
+                <div class="table-responsive pe-2 mt-4">
+                    <table class="table table-sm table-bordered pt-3 text-white" id="list-sales">
                         <thead class="border-bottom">
                             <tr>
                                 <th>Data</th>

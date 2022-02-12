@@ -1,13 +1,14 @@
 <?php use core\classes\Store;  ?>
 <div class="container-fluid p-0 m-0">
-    <div class="row">
+    <div class="row pe-2">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 pe-4">
-            <h4 class="mb-4 mt-4">Lista de usuários</h4>
+        <div class="col-md-10 bg-dark p-4">
+            
+            <h4 class="mb-4 mt-2">Lista de usuários</h4>
 
             <?php if(count($clients) ==0): ?>
                 <p>Não existem usuários cadastrados!</p>
@@ -16,7 +17,7 @@
                 <!-- Tabela de clientes -->
                 <div class="table-responsive">
 
-                    <table class="table table-bordered pt-4" id="table-clients">
+                    <table class="table table-bordered pt-4 text-white" id="table-clients">
                         <thead>
                             <tr>
                                 <th>Nome</th>

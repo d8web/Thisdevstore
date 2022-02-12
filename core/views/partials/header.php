@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     <title><?=APP_NAME . " " . APP_VERSION?></title>
 </head>
 <body>
