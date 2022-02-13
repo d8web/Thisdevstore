@@ -23,7 +23,7 @@
                 </span>
             </p>
             <div class="my-5">
-                <a class="btn btn-primary" href="?a=home">Voltar</a>
+                <a class="btn bg-button" href="?a=home">Voltar</a>
             </div>
         </div>
     </div>

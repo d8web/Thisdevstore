@@ -1,6 +1,6 @@
 <?php
 
-define("APP_NAME",          "DEV STORE");
+define("APP_NAME",          "DEVSTORE");
 define("APP_VERSION",       "1.0.0");
 define("BASE_URL",          "http://localhost/store/public/");
 
@@ -20,9 +20,3 @@ define("STATUS",            ["PENDING", "PROCESSING", "SEND", "CANCELED", "CONCL
 
 // PDF
 define("PDF_PATH",          "C:/xampp/htdocs/store/pdfs/");
-
-// EMAIL
-define("EMAIL_HOST",        "smtp");
-define("EMAIL_FROM",        "selemail.com");
-define("EMAIL_PASS",        "senhaemail");
-define("EMAIL_PORT",        000);
