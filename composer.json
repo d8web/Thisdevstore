@@ -10,7 +10,8 @@
     ],
     "require": {
         "phpmailer/phpmailer": "^6.5",
-        "mpdf/mpdf": "^8.0"
+        "mpdf/mpdf": "^8.0",
+        "stripe/stripe-php": "^7.108"
     },
     "autoload": {
         "psr-4": {

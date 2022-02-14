@@ -62,7 +62,11 @@ class AdminProducts {
         $params)[0];
     }
 
-    public static function updateProduct($updateData) {
+    /**
+     * @param array $updateData 
+    */
+    public static function updateProduct(array $updateData) {
+
         $params = [
             ":id_product" => $updateData["id"],
             ":category" => $updateData["category"],

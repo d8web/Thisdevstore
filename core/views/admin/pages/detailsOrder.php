@@ -1,13 +1,13 @@
 <?php use core\classes\Store; ?>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row me-3">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 bg-dark p-4 pe-5">
+        <div class="col-md-10 bg-dark p-4 pe-5 rounded">
 
             <div class="row mb-2">
                 <div class="col">
@@ -41,7 +41,7 @@
                     <?php if($order->status == "PROCESSING"): ?>
                         <a
                             href="?a=createOrderPDF&order=<?= Store::aesEncrypt($order->id_order) ?>"
-                            class="btn btn-warning"
+                            class="btn btn-warning ms-2 me-2"
                         >Ver PDF</a>
                         <a
                             href="?a=sendOrderPDF&order=<?= Store::aesEncrypt($order->id_order) ?>"

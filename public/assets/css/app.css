@@ -4,6 +4,7 @@
     font-family: 'Ping Pong', sans-serif;
 }
 
+a:focus,
 button:focus,
 input:focus {
     outline: none !important;

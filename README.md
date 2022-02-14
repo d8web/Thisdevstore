@@ -4,7 +4,7 @@
 
 <p>Aqui também temos a parte adminstrativa do sistema, na qual o adminstrador pode gerir os dados da loja, adicionar/editar/deletar os produtos, ver todas as vendas realizadas, lista dos clientes da loja, alterar status da venda com possibilidade de enviar emails para o comprador o notificando sobre alteração do status e envio de pdf para o cliente com dados da compra.</p>
 
-<img src=""/>
+<img src="https://github.com/d8web/Thisdevstore/blob/master/data/loja.gif"/>
 
 ### Features
 
@@ -13,7 +13,13 @@
 - [x] Lista de produtos
 - [x] Lista de produtos filtrando por categoria
 - [x] Adicionar produtos ao carrinho
-- [x] Checkout
+- [x] Stripe checkout
+
+- [x] Sistema adminstrativo
+- [x] Gerenciamento das vendas
+- [x] Gerenciamento dos produtos
+- [x] Gerenciamento dos clientes
+- [x] Envio de pdfs para os clientes
 
 ### Pré requisitos
 Antes de iniciar você precisa ter o [Xampp](https://www.apachefriends.org/pt_br/index.html) instalado na sua máquina, essa ferramenta traz junto de si o PHP e o Mysql. É bom também ter um editor de código como [VSCode](https://code.visualstudio.com/).
@@ -44,6 +50,8 @@ Todos os arquivos de **configuração** do projeto estão dentro do arquivo *con
 
 > const STATUS = '["PENDING", "PROCESSING", "SEND", "CANCELED", "CONCLUDED"]'; <br/>
 > const PDF_PATH = 'C:/xampp/htdocs/store/pdfs/'; <br/>
+
+> const STRIPE_KEY = 'Chave do stripe para receber pagamentos'; <br/>
 
 > const EMAIL_HOST = 'Host do seu email'; <br/>
 > const EMAIL_FROM = 'Seu email'; <br/>

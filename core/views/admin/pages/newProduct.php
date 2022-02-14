@@ -1,11 +1,11 @@
 <div class="container-fluid p-0 m-0">
-    <div class="row pe-3">
+    <div class="row me-4">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 bg-dark p-4">
+        <div class="col-md-10 bg-dark p-4 rounded">
             <h4 class="mb-4 mt-2">Novo produto</h4>
 
             <form action="?a=newProductSubmit" method="POST"  enctype="multipart/form-data" class="mt-3 pb-5">

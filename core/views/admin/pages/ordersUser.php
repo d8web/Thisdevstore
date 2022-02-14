@@ -1,11 +1,11 @@
 <div class="container-fluid p-0 m-0"></div>
-    <div class="row">
+    <div class="row me-4">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 bg-dark p-4 pe-5">
+        <div class="col-md-10 bg-dark p-4 pe-5 rounded">
 
             <h4 class="mb-4 mt-2">
                 Lista de compras do usuário

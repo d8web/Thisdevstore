@@ -60,7 +60,7 @@ class SendEmail {
      * @param array $dataOrder
      * @return bool 
     */
-    public function sendEmailConfirmOrder(string $emailClient, array $dataOrder): bool {
+    public static function sendEmailConfirmOrder(string $emailClient, array $dataOrder): bool {
 
         $mail = new PHPMailer(true);
 
@@ -101,7 +101,6 @@ class SendEmail {
             // Dados de pagamento
             $html .= "<hr>";
             $html .= "<p>DADOS DE PAGAMENTO</p>";
-            $html .= "<p>Número da conta: <strong>" . $dataOrder["paymentData"]["numberAccount"] . "</strong></p>";
             $html .= "<p>Código da encomenda: <strong>" . $dataOrder["paymentData"]["codeOrder"] . "</strong></p>";
             $html .= "<p>Total a pagar: <strong>" . $dataOrder["paymentData"]["total"] . "</strong></p>";
             $html .= "<hr>";

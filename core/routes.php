@@ -37,9 +37,11 @@ $routes = [
     "resumeCheckout" => "orderController@resumeCheckout",
     "addressAlternative" => "orderController@addressAlternative",
     "confirmOrder" => "orderController@confirmOrder",
+    "checkoutConfirmed" => "orderController@checkoutConfirmed",
 
     // Pagamentos [simulação]
-    "payment" => "paymentController@payment"
+    "payment" => "paymentController@payment",
+    "paymentStripeRequest" => "paymentController@paymentStripeRequest"
 ];
 
 // Action padrão

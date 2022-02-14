@@ -1,12 +1,12 @@
 <?php use core\classes\Store;  ?>
 <div class="container-fluid p-0 m-0 pb-5">
-    <div class="row pe-2">
+    <div class="row me-4">
 
         <div class="col-md-2">
             <?php include(__DIR__ . "/../partials/aside.php") ?>
         </div>
 
-        <div class="col-md-10 bg-dark p-4">
+        <div class="col-md-10 bg-dark p-4 rounded">
             
             <div class="row mb-4">
                 <div class="col-md-6">
